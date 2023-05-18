@@ -1,4 +1,11 @@
 # SWEN30006 Assignment2: Report
+**Group Members:**
+| Name | ID | Email |
+| ---- | -- | ----- |
+| Tahmin Ahmed | 1146663 | tahmin@student.unimelb.edu.au |
+| Duvindra Dissanayake | 1152586 | duvindrasanj@student.unimelb.edu.au |
+| Sugon (Tony) Chrisjaroon | 1128883 | schristjaroo@student.unimelb.edu.au |
+
 This report looks at a design analysis of a refactor and extension of the game
 "PacMan in the MultiVerse" into a new game "PacMan in the TorusVerse" as the second assignment of the subject
 SWEN30006, 2023. To reflect on the learning outcomes of the subject, both GoF
@@ -49,6 +56,14 @@ happens in the `Game` class. This makes it difficult to implement and maintain
 new monsters and ensure any new logic is followed everywhere within the source code
 
 #### What changes can be made?
-In order to find prospects for new changes, the following steps are taken:
+A table of considerations are made for all classes. For each consideration, the resulting design pattern chosen is proposed:
+| Consideration to make | Pattern |
+| --------------------- | ----------------- |
+| Does any Class in the codebase need refactoring and simplification? | `Facade` | 
+| Does any Class get an "evolution"; a new version of itself with potentially advanced features? | `Decorator` |
+| Does any Class have an increasingly high amount of parameters, notably during initialization? | `Builder` |
+| Should any Class adapt compatibility with any interface? | `Adapter` |
+| Does any Class contain only a single shared instance | `Singleton` |
 
+**Note:** While no class really *needs* any patterns to be functional, the word "need" refers to any decision which is more meaningful to the semantics of the program.
 
