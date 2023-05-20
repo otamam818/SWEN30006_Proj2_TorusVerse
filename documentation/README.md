@@ -64,6 +64,20 @@ A table of considerations are made for all classes. For each consideration, the 
 | Does any Class have an increasingly high amount of parameters, notably during initialization? | `Builder` |
 | Should any Class adapt compatibility with any interface? | `Adapter` |
 | Does any Class contain only a single shared instance | `Singleton` |
+| Deos the class contain subclasses where its instantiation logic is irrelevant to where it's being used? | `Factory` |
 
 **Note:** While no class really *needs* any patterns to be functional, the word "need" refers to any decision which is more meaningful to the semantics of the program.
+
+After going through each class, the following design decisions have been made:
+| Class | Pattern | Reason |
+| ----- | ------- | ------ |
+| `Game` | Facade | Provides a higher-level interface for the interaction of monsters, simplifying the logic in the `Game` class |
+| `Game` | Facade | Provides a higher-level interface for the interaction of Pills, simplifying the logic in the `Game` class |
+| `Monster` | Factory | Hide the implementation logic of each monster to let external code focus on the usage of the `Monster` rather than its initialization |
+| `Monster` | Adapter | Allow polymorphic behavior between itself and `PacActor` |
+| `PacActor` | Adapter | Allow polymorphic behavior between itself and `Monster` |
+| `PacActor` | Singleton | Prevent any new instance to ever be created and enforce it during development time and runtime |
+
+
+
 
