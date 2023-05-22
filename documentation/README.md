@@ -73,6 +73,7 @@ After going through each class, the following design decisions have been made:
 | ----- | ------- | ------ |
 | `Game` | Facade | Provides a higher-level interface for the interaction of monsters, simplifying the logic in the `Game` class |
 | `Game` | Facade | Provides a higher-level interface for the interaction of Pills, simplifying the logic in the `Game` class |
+| `Game` | Singleton | Used to enforce that only one game is ever created during runtime |
 | `Monster` | Factory | Hide the implementation logic of each monster to let external code focus on the usage of the `Monster` rather than its initialization |
 | `Monster` | Adapter | Allow polymorphic behavior between itself and `PacActor` |
 | `PacActor` | Adapter | Allow polymorphic behavior between itself and `Monster` |
