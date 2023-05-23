@@ -79,6 +79,14 @@ After going through each class, the following design decisions have been made:
 | `PacActor` | Adapter | Allow polymorphic behavior between itself and `Monster` |
 | `PacActor` | Singleton | Prevent any new instance to ever be created and enforce it during development time and runtime |
 
+Implementing the Singleton pattern for the `Game` class came with the additional benefit of reducing 
+any tight coupling from the codebase. This meant that a change in a descendant class - dependending 
+on a value from the `Game` class - will not result in needing to change the code for any other 
+objects connecting them.
 
+After starting the implementation for the Facade pattern on the `Game` class to abstract away pill-related items, 
+it started making sense to also extract any grid parsing functionality away from it too, 
+as, by doing so, the `Game` class gets closer to performing the High-cohesion principle of GRASP. It was decided to
+extract grid parsing to the `PacManGameGrid` class as it makes more sense to parse grid-related items in said class.
 
 
