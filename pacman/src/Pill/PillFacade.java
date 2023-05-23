@@ -1,9 +1,11 @@
 package src.Pill;
 
+import ch.aplu.jgamegrid.GGBackground;
 import ch.aplu.jgamegrid.Location;
 import src.Game;
 import src.PacManGameGrid;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -11,14 +13,16 @@ import java.util.Properties;
 public class PillFacade {
   private final AbstractPills goldPills;
   private final AbstractPills simplePills;
+  private final AbstractPills icePills;
   private Integer count;
   private List<Location> pillAndItemLocations;
 
   public PillFacade () {
     this.goldPills = new GoldPills();
     this.simplePills = new SimplePills();
-    this.count = null;
+    this.icePills = new IcePills();
     this.pillAndItemLocations = setupPillAndItemsLocations();
+    this.count = null;
   }
 
   public int getCount() {
@@ -79,6 +83,7 @@ public class PillFacade {
         }
         if (a == 4) {
           finalLocations.add(location);
+          icePills.getLocations().add(location);
         }
       }
     }
@@ -91,5 +96,24 @@ public class PillFacade {
     }
 
     return finalLocations;
+  }
+
+  /**
+   * The function used to fill pill-related cells in the Game instance
+   * to be used in the `Game` class
+   * @param a
+   * @param bg
+   * @param location
+   */
+  public void fillCell(int a, GGBackground bg, Location location) {
+    if (a > 0)
+      bg.fillCell(location, Color.lightGray);
+    if (a == 1 && simplePills.getLocations().size() == 0) { // Pill
+      simplePills.putPiece(bg, location);
+    } else if (a == 3 && goldPills.getLocations().size() == 0) { // Gold
+      goldPills.putPiece(bg, location);
+    } else if (a == 4) {
+      icePills.putPiece(bg, location);
+    }
   }
 }

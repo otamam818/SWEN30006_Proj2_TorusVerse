@@ -3,6 +3,8 @@ package src;
 
 import ch.aplu.jgamegrid.*;
 
+import java.awt.*;
+
 public class PacManGameGrid
 {
   private int nbHorzCells;

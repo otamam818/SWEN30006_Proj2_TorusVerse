@@ -2,17 +2,18 @@ package src.Pill;
 
 import java.awt.*;
 
-public class SimplePills extends  AbstractPills {
-  public SimplePills() {
+public class IcePills extends AbstractPills {
+  public IcePills() {
     super();
   }
 
   @Override
   protected String getKey() {
-    return "Pills";
+    return "Ice";
   }
 
+  @Override
   protected Color getPaintColor() {
-    return null;
+    return Color.blue;
   }
 }
