@@ -11,6 +11,7 @@ import java.util.Properties;
 
 public class Game extends GameGrid
 {
+  private static Game gameSingleton = null;
   private final static int nbHorzCells = 20;
   private final static int nbVertCells = 11;
   protected PacManGameGrid grid = new PacManGameGrid(nbHorzCells, nbVertCells);
@@ -29,14 +30,23 @@ public class Game extends GameGrid
   private ArrayList<Location> propertyPillLocations = new ArrayList<>();
   private ArrayList<Location> propertyGoldLocations = new ArrayList<>();
 
-  public Game(GameCallback gameCallback, Properties properties)
-  {
-    //Setup game
+  private Game() {
     super(nbHorzCells, nbVertCells, 20, false);
+    this.properties = null;
+  }
+
+  public void setInitSettings(GameCallback gameCallback, Properties properties) {
     this.gameCallback = gameCallback;
     this.properties = properties;
+  }
+
+  public void build()
+  {
+    //Setup game
+    assert gameCallback != null : "gameCallback not initialized";
+    assert properties != null : "properties not initialized";
     setSimulationPeriod(100);
-    setTitle("[PacMan in the Multiverse]");
+    setTitle("[PacMan in the Torusverse]");
 
     //Setup for auto test
     pacActor.setPropertyMoves(properties.getProperty("PacMan.move"));
@@ -97,6 +107,17 @@ public class Game extends GameGrid
     gameCallback.endOfGame(title);
 
     doPause();
+  }
+
+  public Properties getProperties() {
+    return properties;
+  }
+
+
+  public static synchronized Game getInstance() {
+    if (gameSingleton == null)
+      gameSingleton = new Game();
+    return gameSingleton;
   }
 
   public GameCallback getGameCallback() {
@@ -276,5 +297,9 @@ public class Game extends GameGrid
   }
   public int getNumVertCells(){
     return this.nbVertCells;
+  }
+
+  public PacManGameGrid getGrid() {
+    return grid;
   }
 }
