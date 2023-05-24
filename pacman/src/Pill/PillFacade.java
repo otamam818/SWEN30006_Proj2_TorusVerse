@@ -21,8 +21,12 @@ public class PillFacade {
     this.goldPills = new GoldPills();
     this.simplePills = new SimplePills();
     this.icePills = new IcePills();
-    this.pillAndItemLocations = setupPillAndItemsLocations();
+    this.pillAndItemLocations = null;
     this.count = null;
+  }
+
+  public List<Location> getPillAndItemLocations() {
+    return pillAndItemLocations;
   }
 
   public int getCount() {
@@ -61,7 +65,7 @@ public class PillFacade {
 
     return pillsAndItemsCount;
   }
-  private List<Location> setupPillAndItemsLocations() {
+  public void setupPillAndItemsLocations() {
     // NOTE: Consider mixing this implementation with setupCount
     List<Location> finalLocations = new ArrayList<Location>();
     int nbVertCells = Game.getInstance().getNbVertCells();
@@ -95,7 +99,7 @@ public class PillFacade {
       finalLocations.addAll(goldPills.getLocations());
     }
 
-    return finalLocations;
+    this.pillAndItemLocations = finalLocations;
   }
 
   /**
@@ -115,5 +119,28 @@ public class PillFacade {
     } else if (a == 4) {
       icePills.putPiece(bg, location);
     }
+  }
+
+  public void putLocatedPills(GGBackground bg) {
+    AbstractPills[] relevantPills = new AbstractPills[] {
+            this.goldPills,
+            this.simplePills
+    };
+
+    for (AbstractPills relevantPill : relevantPills) {
+      for (Location location : relevantPill.getLocations()) {
+        relevantPill.putPiece(bg, location);
+      }
+    }
+  }
+
+  public void removeItem(String type,Location location){
+    AbstractPills chosenPill;
+    switch (type) {
+      case "gold" -> chosenPill = this.goldPills;
+      case "ice" -> chosenPill = this.icePills;
+      default -> throw new RuntimeException("Invalid use case for pillFacade.removeItem");
+    }
+    chosenPill.removeItem(type, location);
   }
 }

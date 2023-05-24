@@ -44,8 +44,7 @@ public class PacManGameGrid
   {
     return mazeArray[location.y][location.x];
   }
-  private int toInt(char c)
-  {
+  private int toInt(char c) {
     if (c == 'x')
       return 0;
     if (c == '.')
@@ -57,5 +56,32 @@ public class PacManGameGrid
     if (c == 'i')
       return 4;
     return -1;
+  }
+
+  public void draw(GGBackground bg)
+  {
+    bg.clear(Color.gray);
+    bg.setPaintColor(Color.white);
+    for (int y = 0; y < nbVertCells; y++)
+    {
+      for (int x = 0; x < nbHorzCells; x++)
+      {
+        bg.setPaintColor(Color.white);
+        Location location = new Location(x, y);
+        int a = Game
+          .getInstance()
+          .getGrid()
+          .getCell(location);
+        Game
+          .getInstance()
+          .getPillFacade()
+          .fillCell(a, bg, location);
+      }
+    }
+
+    Game
+      .getInstance()
+      .getPillFacade()
+      .putLocatedPills(bg);
   }
 }

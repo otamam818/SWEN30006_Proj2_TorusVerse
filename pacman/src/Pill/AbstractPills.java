@@ -71,6 +71,16 @@ public abstract class AbstractPills {
     return acceptedPieces.contains(getKey());
   }
 
+  public void removeItem(String type,Location location){
+    if (actorPieces.isPresent()) {
+      for (Actor item : actorPieces.get()){
+        if (location.getX() == item.getLocation().getX() && location.getY() == item.getLocation().getY()) {
+          item.hide();
+        }
+      }
+    }
+  }
+
   protected abstract String getKey();
   protected abstract Color getPaintColor();
 
