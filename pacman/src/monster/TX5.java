@@ -1,7 +1,6 @@
 package src.monster;
 
 import ch.aplu.jgamegrid.Location;
-import src.MonsterType;
 
 public class TX5 extends AbstractMonster {
   public TX5() {
@@ -16,6 +15,11 @@ public class TX5 extends AbstractMonster {
       next = doRandomWalk(oldDirection);
     }
     return next;
+  }
+
+  @Override
+  public String getKey() {
+    return "TX5";
   }
 
   @Override

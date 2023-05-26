@@ -1,7 +1,6 @@
 package src.monster;
 
 import ch.aplu.jgamegrid.Location;
-import src.MonsterType;
 
 public class Troll extends AbstractMonster {
   public Troll() {
@@ -16,5 +15,10 @@ public class Troll extends AbstractMonster {
   @Override
   protected MonsterType setupMonsterType() {
     return MonsterType.Troll;
+  }
+
+  @Override
+  public String getKey() {
+    return "Troll";
   }
 }

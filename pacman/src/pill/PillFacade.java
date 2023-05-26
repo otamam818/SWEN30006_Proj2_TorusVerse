@@ -3,7 +3,7 @@ package src.pill;
 import ch.aplu.jgamegrid.GGBackground;
 import ch.aplu.jgamegrid.Location;
 import src.Game;
-import src.PacManGameGrid;
+import src.utility.PacManGameGrid;
 
 import java.awt.*;
 import java.util.ArrayList;

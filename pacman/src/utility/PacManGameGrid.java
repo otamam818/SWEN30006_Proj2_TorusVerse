@@ -1,7 +1,8 @@
 // PacGrid.java
-package src;
+package src.utility;
 
 import ch.aplu.jgamegrid.*;
+import src.Game;
 
 import java.awt.*;
 

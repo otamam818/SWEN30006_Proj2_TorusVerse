@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class PacActor extends Actor implements GGKeyRepeatListener
+public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor
 {
   private static PacActor pacActorSingleton = null;
   private static final int nbSprites = 4;
@@ -249,5 +249,15 @@ public class PacActor extends Actor implements GGKeyRepeatListener
     }
     String title = "[PacMan in the Multiverse] Current score: " + score;
     gameGrid.setTitle(title);
+  }
+
+  @Override
+  public String getKey() {
+    return "PacMan";
+  }
+
+  @Override
+  public void handleEndOfGame() {
+    removeSelf();
   }
 }

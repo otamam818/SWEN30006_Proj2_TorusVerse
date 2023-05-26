@@ -3,8 +3,7 @@ package src.monster;
 import ch.aplu.jgamegrid.Actor;
 import ch.aplu.jgamegrid.Location;
 import src.Game;
-import src.Monster;
-import src.MonsterType;
+import src.MovingActor;
 import src.PacActor;
 
 import java.awt.*;
@@ -13,7 +12,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public abstract class AbstractMonster {
+public abstract class AbstractMonster implements MovingActor {
   protected final Actor actor;
   private final ArrayList<Location> visitedList = new ArrayList<Location>();
   private final int listLength = 10;
@@ -160,5 +159,15 @@ public abstract class AbstractMonster {
   protected abstract MonsterType setupMonsterType();
   public Location getLocation() {
     return actor.getLocation();
+  }
+
+  @Override
+  public void setSlowDown(int factor) {
+    actor.setSlowDown(factor);
+  }
+
+  @Override
+  public void handleEndOfGame() {
+    setStopMoving(true);
   }
 }

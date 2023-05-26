@@ -3,10 +3,12 @@
 package src;
 
 import ch.aplu.jgamegrid.*;
+import src.monster.MonsterType;
+
 import java.awt.Color;
 import java.util.*;
 
-public class Monster extends Actor
+public class Monster extends Actor implements MovingActor
 {
   private Game game;
   private MonsterType type;
@@ -144,5 +146,19 @@ public class Monster extends Actor
       return false;
     else
       return true;
+  }
+
+  @Override
+  public String getKey() {
+    switch (type) {
+      case Troll -> { return "Troll"; }
+      case TX5 -> { return "TX5"; }
+      default -> throw new RuntimeException("Not implemented for this type: " + type);
+    }
+  }
+
+  @Override
+  public void handleEndOfGame() {
+    setStopMoving(true);
   }
 }

@@ -3,8 +3,10 @@
 package src;
 
 import ch.aplu.jgamegrid.*;
+import src.monster.MonsterType;
 import src.pill.PillFacade;
 import src.utility.GameCallback;
+import src.utility.PacManGameGrid;
 
 import java.awt.*;
 import java.util.Properties;
@@ -16,7 +18,9 @@ public class Game extends GameGrid
   private final static int nbVertCells = 11;
   protected PacManGameGrid grid = new PacManGameGrid(nbHorzCells, nbVertCells);
 
+  // OLD
   private Monster troll = new Monster(this, MonsterType.Troll);
+  //NEW - don't even have it here, rather initialize a MonsterFacade in the build method
   private Monster tx5 = new Monster(this, MonsterType.TX5);
 
   private GameCallback gameCallback;
@@ -56,6 +60,9 @@ public class Game extends GameGrid
     pacActor.setSeed(seed);
     troll.setSeed(seed);
     tx5.setSeed(seed);
+    // NEW
+    // For loop over ActorAdapter where MonsterFacade has a setSeed function
+    // MonsterFacade.setSeed(seed)
     addKeyRepeatListener(pacActor);
     setKeyRepeatPeriod(150);
     troll.setSlowDown(3);
