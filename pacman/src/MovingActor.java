@@ -33,15 +33,12 @@ public interface MovingActor {
   default void setupActorLocations() {
     Location location = initializeLocation();
     assert this instanceof Actor;
+    placeActor(location);
+  }
+
+  default void placeActor(Location location) {
     Game
       .getInstance()
       .addActor((Actor) this, location);
-    /*
-    if (actor instanceof AbstractMonster) {
-      addActor(((AbstractMonster) actor).getActor(), new Location(xCoordinate, yCoordinate), Location.NORTH);
-    } else {
-      addActor(actor, new Location(xCoordinate, yCoordinate));
-    }
-    */
   }
 }

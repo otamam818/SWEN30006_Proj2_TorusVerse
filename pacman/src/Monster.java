@@ -161,4 +161,11 @@ public class Monster extends Actor implements MovingActor
   public void handleEndOfGame() {
     setStopMoving(true);
   }
+
+  @Override
+  public void placeActor(Location location) {
+    Game
+            .getInstance()
+            .addActor(this, location, Location.NORTH);
+  }
 }

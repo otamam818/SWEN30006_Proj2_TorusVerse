@@ -4,6 +4,7 @@ package src;
 
 import ch.aplu.jgamegrid.*;
 import src.monster.MonsterType;
+import src.monster.TX5;
 import src.pill.PillFacade;
 import src.utility.GameCallback;
 import src.utility.PacManGameGrid;
@@ -48,53 +49,68 @@ public class Game extends GameGrid
 
     //Setup for auto test
     PacActor pacActor = PacActor.getInstance();
-    pacActor.setPropertyMoves(properties.getProperty("PacMan.move"));
-    pacActor.setAuto(Boolean.parseBoolean(properties.getProperty("PacMan.isAuto")));
     pillFacade = new PillFacade();
+
+    MovingActor[] mactors = new MovingActor[] {
+            pacActor,
+            troll,
+            tx5
+    };
+
+    Monster[] monsters = new Monster[] {
+            troll,
+            tx5
+    };
 
     GGBackground bg = getBg();
     grid.draw(bg);
 
     //Setup Random seeds
     seed = Integer.parseInt(properties.getProperty("seed"));
-    pacActor.setSeed(seed);
-    troll.setSeed(seed);
-    tx5.setSeed(seed);
+    for (MovingActor mactor : mactors) {
+      mactor.setSeed(seed);
+      if (mactor instanceof PacActor) {
+        addKeyRepeatListener(pacActor);
+        setKeyRepeatPeriod(150);
+      }
+
+      mactor.setSlowDown(3);
+      if (mactor instanceof Monster && (((Monster) mactor).getType() == MonsterType.TX5)) {
+        ((Monster) mactor).stopMoving(5);
+      }
+    }
     // NEW
     // For loop over ActorAdapter where MonsterFacade has a setSeed function
     // MonsterFacade.setSeed(seed)
-    addKeyRepeatListener(pacActor);
-    setKeyRepeatPeriod(150);
-    troll.setSlowDown(3);
-    tx5.setSlowDown(3);
-    pacActor.setSlowDown(3);
-    tx5.stopMoving(5);
-    setupActorLocations();
+    for (MovingActor mactor : mactors) {
+      mactor.setupActorLocations();
+    }
+    // setupActorLocations();
 
     //Run the game
     doRun();
     show();
     // Loop to look for collision in the application thread
     // This makes it improbable that we miss a hit
-    boolean hasPacmanBeenHit;
+    boolean hasPacmanBeenHit = false;
     boolean hasPacmanEatAllPills;
 
     pillFacade.setupPillAndItemsLocations();
     int maxPillsAndItems = pillFacade.getCount();
 
-    
     do {
-      hasPacmanBeenHit = troll.getLocation().equals(pacActor.getLocation()) ||
-              tx5.getLocation().equals(pacActor.getLocation());
+      for (Monster monster : monsters) {
+        hasPacmanBeenHit = hasPacmanBeenHit || monster.collidesWith(pacActor);
+      }
       hasPacmanEatAllPills = pacActor.getNbPills() >= maxPillsAndItems;
       delay(10);
     } while(!hasPacmanBeenHit && !hasPacmanEatAllPills);
     delay(120);
 
     Location loc = pacActor.getLocation();
-    troll.setStopMoving(true);
-    tx5.setStopMoving(true);
-    pacActor.removeSelf();
+    for (MovingActor mactor : mactors) {
+      mactor.handleEndOfGame();
+    }
 
     String title = "";
     if (hasPacmanBeenHit) {
@@ -124,25 +140,6 @@ public class Game extends GameGrid
 
   public GameCallback getGameCallback() {
     return gameCallback;
-  }
-
-  private void setupActorLocations() {
-    String[] trollLocations = this.properties.getProperty("Troll.location").split(",");
-    String[] tx5Locations = this.properties.getProperty("TX5.location").split(",");
-    String[] pacManLocations = this.properties.getProperty("PacMan.location").split(",");
-    int trollX = Integer.parseInt(trollLocations[0]);
-    int trollY = Integer.parseInt(trollLocations[1]);
-
-    int tx5X = Integer.parseInt(tx5Locations[0]);
-    int tx5Y = Integer.parseInt(tx5Locations[1]);
-
-    int pacManX = Integer.parseInt(pacManLocations[0]);
-    int pacManY = Integer.parseInt(pacManLocations[1]);
-
-    addActor(troll, new Location(trollX, trollY), Location.NORTH);
-    PacActor pacActor = PacActor.getInstance();
-    addActor(pacActor, new Location(pacManX, pacManY));
-    addActor(tx5, new Location(tx5X, tx5Y), Location.NORTH);
   }
 
   public int getNumHorzCells(){

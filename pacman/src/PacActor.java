@@ -26,6 +26,9 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor
   private PacActor()
   {
     super(true, "sprites/pacpix.gif", nbSprites);  // Rotatable
+    var properties = Game.getInstance().getProperties();
+    setPropertyMoves(properties.getProperty("PacMan.move"));
+    setAuto(Boolean.parseBoolean(properties.getProperty("PacMan.isAuto")));
   }
 
   public static synchronized PacActor getInstance() {

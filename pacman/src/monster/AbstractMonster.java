@@ -170,4 +170,11 @@ public abstract class AbstractMonster implements MovingActor {
   public void handleEndOfGame() {
     setStopMoving(true);
   }
+
+  @Override
+  public void placeActor(Location location) {
+    Game
+      .getInstance()
+      .addActor(actor, location, Location.NORTH);
+  }
 }
