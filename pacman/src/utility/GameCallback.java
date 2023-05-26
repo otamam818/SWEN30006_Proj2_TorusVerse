@@ -2,6 +2,7 @@ package src.utility;
 
 import ch.aplu.jgamegrid.Location;
 import src.Monster;
+import src.monster.AbstractMonster;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -43,6 +44,12 @@ public class GameCallback {
     }
 
     public void monsterLocationChanged(Monster monster) {
+        String monsterLocationString = String.format("[%s] Location: %d-%d", monster.getType(),
+                monster.getLocation().getX(), monster.getLocation().getY());
+        writeString(monsterLocationString);
+    }
+
+    public void abstractMonsterLocationChanged(AbstractMonster monster) {
         String monsterLocationString = String.format("[%s] Location: %d-%d", monster.getType(),
                 monster.getLocation().getX(), monster.getLocation().getY());
         writeString(monsterLocationString);

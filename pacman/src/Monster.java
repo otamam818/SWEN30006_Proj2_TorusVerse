@@ -59,7 +59,7 @@ public class Monster extends Actor
 
   private void walkApproach()
   {
-    Location pacLocation = game.pacActor.getLocation();
+    Location pacLocation = PacActor.getInstance().getLocation();
     double oldDirection = getDirection();
 
     // Walking approach:

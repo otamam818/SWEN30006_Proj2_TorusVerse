@@ -12,21 +12,26 @@ import java.util.Random;
 
 public class PacActor extends Actor implements GGKeyRepeatListener
 {
+  private static PacActor pacActorSingleton = null;
   private static final int nbSprites = 4;
   private int idSprite = 0;
   private int nbPills = 0;
   private int score = 0;
-  private Game game;
-  private ArrayList<Location> visitedList = new ArrayList<Location>();
+  private final ArrayList<Location> visitedList = new ArrayList<Location>();
   private List<String> propertyMoves = new ArrayList<>();
   private int propertyMoveIndex = 0;
   private final int listLength = 10;
   private int seed;
   private Random randomiser = new Random();
-  public PacActor(Game game)
+  private PacActor()
   {
     super(true, "sprites/pacpix.gif", nbSprites);  // Rotatable
-    this.game = game;
+  }
+
+  public static synchronized PacActor getInstance() {
+    if (pacActorSingleton == null)
+      pacActorSingleton = new PacActor();
+    return pacActorSingleton;
   }
   private boolean isAuto = false;
 
@@ -90,13 +95,16 @@ public class PacActor extends Actor implements GGKeyRepeatListener
     if (isAuto) {
       moveInAutoMode();
     }
-    this.game.getGameCallback().pacManLocationChanged(getLocation(), score, nbPills);
+    Game.getInstance().getGameCallback().pacManLocationChanged(getLocation(), score, nbPills);
   }
 
   private Location closestPillLocation() {
     int currentDistance = 1000;
     Location currentLocation = null;
-    List<Location> pillAndItemLocations = game.getPillFacade().getPillAndItemLocations();
+    List<Location> pillAndItemLocations = Game
+            .getInstance()
+            .getPillFacade()
+            .getPillAndItemLocations();
     for (Location location: pillAndItemLocations) {
       int distanceToPill = location.getDistanceTo(getLocation());
       if (distanceToPill < currentDistance) {
@@ -192,6 +200,7 @@ public class PacActor extends Actor implements GGKeyRepeatListener
 
   private boolean canMove(Location location)
   {
+    Game game = Game.getInstance();
     Color c = getBackground().getColor(location);
     if ( c.equals(Color.gray) || location.getX() >= game.getNumHorzCells()
             || location.getX() < 0 || location.getY() >= game.getNumVertCells() || location.getY() < 0)
@@ -207,28 +216,38 @@ public class PacActor extends Actor implements GGKeyRepeatListener
   private void eatPill(Location location)
   {
     Color c = getBackground().getColor(location);
+    String type = null;
+    boolean hasActorItems = false;
     if (c.equals(Color.white))
     {
       nbPills++;
       score++;
       getBackground().fillCell(location, Color.lightGray);
-      game.getGameCallback().pacManEatPillsAndItems(location, "pills");
+      type = "pills";
     } else if (c.equals(Color.yellow)) {
       nbPills++;
       score+= 5;
       getBackground().fillCell(location, Color.lightGray);
-      game.getGameCallback().pacManEatPillsAndItems(location, "gold");
-      // game.removeItem("gold",location);
-      game.getPillFacade().removeItem("gold", location);
+      type = "gold";
+      hasActorItems = true;
     } else if (c.equals(Color.blue)) {
       getBackground().fillCell(location, Color.lightGray);
-      game.getGameCallback().pacManEatPillsAndItems(location, "ice");
-      // game.removeItem("ice",location);
-      game.getPillFacade().removeItem("ice",location);
+      type = "ice";
+      hasActorItems = true;
+    }
+    if (type != null) {
+      Game
+        .getInstance()
+        .getGameCallback()
+        .pacManEatPillsAndItems(location, type);
+      if (hasActorItems) {
+        Game
+          .getInstance()
+          .getPillFacade()
+          .removeItem(type,location);
+      }
     }
     String title = "[PacMan in the Multiverse] Current score: " + score;
     gameGrid.setTitle(title);
   }
-
-
 }

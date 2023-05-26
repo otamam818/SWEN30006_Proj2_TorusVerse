@@ -1,4 +1,4 @@
-package src.Pill;
+package src.pill;
 
 import ch.aplu.jgamegrid.GGBackground;
 import ch.aplu.jgamegrid.Location;
@@ -8,7 +8,6 @@ import src.PacManGameGrid;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 public class PillFacade {
   private final AbstractPills goldPills;

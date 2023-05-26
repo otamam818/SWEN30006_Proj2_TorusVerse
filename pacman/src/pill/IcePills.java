@@ -1,4 +1,4 @@
-package src.Pill;
+package src.pill;
 
 import java.awt.*;
 

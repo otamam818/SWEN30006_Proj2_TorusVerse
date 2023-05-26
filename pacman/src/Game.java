@@ -3,11 +3,10 @@
 package src;
 
 import ch.aplu.jgamegrid.*;
-import src.Pill.PillFacade;
+import src.pill.PillFacade;
 import src.utility.GameCallback;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Properties;
 
 public class Game extends GameGrid
@@ -17,10 +16,8 @@ public class Game extends GameGrid
   private final static int nbVertCells = 11;
   protected PacManGameGrid grid = new PacManGameGrid(nbHorzCells, nbVertCells);
 
-  protected PacActor pacActor = new PacActor(this);
   private Monster troll = new Monster(this, MonsterType.Troll);
   private Monster tx5 = new Monster(this, MonsterType.TX5);
-
 
   private GameCallback gameCallback;
   private Properties properties;
@@ -46,6 +43,7 @@ public class Game extends GameGrid
     setTitle("[PacMan in the Torusverse]");
 
     //Setup for auto test
+    PacActor pacActor = PacActor.getInstance();
     pacActor.setPropertyMoves(properties.getProperty("PacMan.move"));
     pacActor.setAuto(Boolean.parseBoolean(properties.getProperty("PacMan.isAuto")));
     pillFacade = new PillFacade();
@@ -135,6 +133,7 @@ public class Game extends GameGrid
     int pacManY = Integer.parseInt(pacManLocations[1]);
 
     addActor(troll, new Location(trollX, trollY), Location.NORTH);
+    PacActor pacActor = PacActor.getInstance();
     addActor(pacActor, new Location(pacManX, pacManY));
     addActor(tx5, new Location(tx5X, tx5Y), Location.NORTH);
   }

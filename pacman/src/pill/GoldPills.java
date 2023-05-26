@@ -1,7 +1,6 @@
-package src.Pill;
+package src.pill;
 
 import java.awt.*;
-import java.util.Properties;
 
 public class GoldPills extends AbstractPills {
   public GoldPills() {

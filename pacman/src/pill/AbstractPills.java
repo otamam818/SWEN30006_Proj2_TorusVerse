@@ -1,4 +1,4 @@
-package src.Pill;
+package src.pill;
 
 import ch.aplu.jgamegrid.Actor;
 import ch.aplu.jgamegrid.GGBackground;
