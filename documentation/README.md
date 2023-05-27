@@ -82,12 +82,12 @@ After going through each class, the following design decisions have been made:
 Implementing the Singleton pattern for the `Game` class came with the additional benefit of reducing 
 any tight coupling from the codebase. This meant that a change in a descendant class - dependending 
 on a value from the `Game` class - will not result in needing to change the code for any other 
-objects connecting them.
+objects connecting them. Expand on how this helps with extensibility of TorusVerse.
 
 After starting the implementation for the Facade pattern on the `Game` class to abstract away pill-related items, 
 it started making sense to also extract any grid parsing functionality away from it too, 
 as, by doing so, the `Game` class gets closer to performing the High-cohesion principle of GRASP. It was decided to
-extract grid parsing to the `PacManGameGrid` class as it makes more sense to parse grid-related items in said class.
+extract grid parsing to the `PacManGameGrid` class as it makes more sense to parse grid-related items in said class. 
 
 The singleton pattern implemented in the `PacActor` class assisted in the proccess of implementing the Facade pattern
 for the `Monster` class. The code resulted in less calls to `getInstance` from the Game class, as `PacActor`'s single
