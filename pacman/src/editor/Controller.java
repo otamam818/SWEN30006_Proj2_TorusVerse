@@ -52,7 +52,7 @@ public class Controller implements ActionListener, GUIInformation {
 	}
 
 	public void init(int width, int height) {
-		this.tiles = TileManager.getTilesFromFolder("data/");
+		this.tiles = TileManager.getTilesFromFolder("torusData/");
 		this.model = new GridModel(width, height, tiles.get(0).getCharacter());
 		this.camera = new GridCamera(model, Constants.GRID_WIDTH,
 				Constants.GRID_HEIGHT);

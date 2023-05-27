@@ -2,6 +2,10 @@ package src;
 
 import ch.aplu.jgamegrid.Actor;
 import ch.aplu.jgamegrid.Location;
+import src.utility.PacManGameGrid;
+
+import java.util.Optional;
+import java.util.Properties;
 
 public interface MovingActor {
   void setSeed(int seed);
@@ -17,9 +21,21 @@ public interface MovingActor {
   }
 
   default Location initializeLocation() {
-    String[] locations = Game
-            .getInstance()
-            .getProperties()
+    Properties property;
+    if (Game.getInstance().getGrid().getOrigin() == PacManGameGrid.GridOrigin.DEFAULT) {
+      property = Game
+        .getInstance()
+        .getProperties();
+    } else {
+      Optional<Properties> propOption = Game.getInstance().getGrid().getGridProps();
+      assert propOption.isPresent();
+      property = propOption.get();
+    }
+
+    if (!property.containsKey(getKey() + ".location")) {
+      throw new RuntimeException(getKey() + " does not exist in the grid.");
+    }
+    String[] locations = property
             .getProperty(getKey() + ".location")
             .split(",");
     int x = Integer.parseInt(locations[0]);

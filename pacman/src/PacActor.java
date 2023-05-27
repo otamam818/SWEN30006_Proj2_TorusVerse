@@ -4,6 +4,7 @@ package src;
 
 import ch.aplu.jgamegrid.*;
 import src.monster.ActorAdapter;
+import src.utility.PacManGameGrid;
 
 import java.awt.event.KeyEvent;
 import java.awt.Color;
@@ -19,7 +20,7 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
   private int idSprite = 0;
   private int nbPills = 0;
   private int score = 0;
-  private final ArrayList<Location> visitedList = new ArrayList<>();
+  private ArrayList<Location> visitedList = new ArrayList<>();
   private List<String> propertyMoves = new ArrayList<>();
   private int propertyMoveIndex = 0;
   private final int listLength = 10;

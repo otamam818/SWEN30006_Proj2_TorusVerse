@@ -9,9 +9,12 @@ import src.monster.MonsterType;
 import src.monster.TX5;
 import src.pill.PillFacade;
 import src.utility.GameCallback;
+import src.utility.GameXMLHandler;
 import src.utility.PacManGameGrid;
 
 import java.awt.*;
+import java.io.File;
+import java.util.Optional;
 import java.util.Properties;
 
 public class Game extends GameGrid
@@ -19,7 +22,7 @@ public class Game extends GameGrid
   private static Game gameSingleton = null;
   private final static int nbHorzCells = 20;
   private final static int nbVertCells = 11;
-  protected PacManGameGrid grid = new PacManGameGrid(nbHorzCells, nbVertCells);
+  protected PacManGameGrid grid = null;
 
   private GameCallback gameCallback;
   private Properties properties;
@@ -29,11 +32,20 @@ public class Game extends GameGrid
   private Game() {
     super(nbHorzCells, nbVertCells, 20, false);
     this.properties = null;
+    this.gameCallback = null;
   }
 
-  public void setInitSettings(GameCallback gameCallback, Properties properties) {
+  public void setInitSettings(GameCallback gameCallback, Properties properties, Optional<File> chosenFile) {
     this.gameCallback = gameCallback;
     this.properties = properties;
+    if (chosenFile.isEmpty()) {
+      // TODO: call a 'default' map
+      this.grid = new PacManGameGrid(nbHorzCells, nbVertCells);
+    } else {
+      // TODO: parse file to call a custom map
+      GameXMLHandler handler = new GameXMLHandler(chosenFile.get());
+      this.grid = new PacManGameGrid(handler);
+    }
   }
 
   public void build()
