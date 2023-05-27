@@ -3,6 +3,8 @@
 package src;
 
 import ch.aplu.jgamegrid.*;
+import src.monster.ActorAdapter;
+
 import java.awt.event.KeyEvent;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -10,19 +12,19 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor
+public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor, ActorAdapter
 {
   private static PacActor pacActorSingleton = null;
   private static final int nbSprites = 4;
   private int idSprite = 0;
   private int nbPills = 0;
   private int score = 0;
-  private final ArrayList<Location> visitedList = new ArrayList<Location>();
+  private final ArrayList<Location> visitedList = new ArrayList<>();
   private List<String> propertyMoves = new ArrayList<>();
   private int propertyMoveIndex = 0;
   private final int listLength = 10;
   private int seed;
-  private Random randomiser = new Random();
+  private final Random randomiser = new Random();
   private PacActor()
   {
     super(true, "sprites/pacpix.gif", nbSprites);  // Rotatable
@@ -62,24 +64,23 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor
     if (isRemoved())  // Already removed
       return;
     Location next = null;
-    switch (keyCode)
-    {
-      case KeyEvent.VK_LEFT:
+    switch (keyCode) {
+      case KeyEvent.VK_LEFT -> {
         next = getLocation().getNeighbourLocation(Location.WEST);
         setDirection(Location.WEST);
-        break;
-      case KeyEvent.VK_UP:
+      }
+      case KeyEvent.VK_UP -> {
         next = getLocation().getNeighbourLocation(Location.NORTH);
         setDirection(Location.NORTH);
-        break;
-      case KeyEvent.VK_RIGHT:
+      }
+      case KeyEvent.VK_RIGHT -> {
         next = getLocation().getNeighbourLocation(Location.EAST);
         setDirection(Location.EAST);
-        break;
-      case KeyEvent.VK_DOWN:
+      }
+      case KeyEvent.VK_DOWN -> {
         next = getLocation().getNeighbourLocation(Location.SOUTH);
         setDirection(Location.SOUTH);
-        break;
+      }
     }
     if (next != null && canMove(next))
     {
@@ -121,20 +122,16 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor
 
   private void followPropertyMoves() {
     String currentMove = propertyMoves.get(propertyMoveIndex);
-    switch(currentMove) {
-      case "R":
-        turn(90);
-        break;
-      case "L":
-        turn(-90);
-        break;
-      case "M":
+    switch (currentMove) {
+      case "R" -> turn(90);
+      case "L" -> turn(-90);
+      case "M" -> {
         Location next = getNextMoveLocation();
         if (canMove(next)) {
           setLocation(next);
           eatPill(next);
         }
-        break;
+      }
     }
     propertyMoveIndex++;
   }
@@ -205,11 +202,8 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor
   {
     Game game = Game.getInstance();
     Color c = getBackground().getColor(location);
-    if ( c.equals(Color.gray) || location.getX() >= game.getNumHorzCells()
-            || location.getX() < 0 || location.getY() >= game.getNumVertCells() || location.getY() < 0)
-      return false;
-    else
-      return true;
+    return !c.equals(Color.gray) && location.getX() < game.getNumHorzCells()
+            && location.getX() >= 0 && location.getY() < game.getNumVertCells() && location.getY() >= 0;
   }
 
   public int getNbPills() {
@@ -262,5 +256,25 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor
   @Override
   public void handleEndOfGame() {
     removeSelf();
+  }
+
+  @Override
+  public Boolean collidesWith(MovingActor other) {
+    return MovingActor.super.collidesWith(other);
+  }
+
+  @Override
+  public Location initializeLocation() {
+    return MovingActor.super.initializeLocation();
+  }
+
+  @Override
+  public void setupActorLocations() {
+    MovingActor.super.setupActorLocations();
+  }
+
+  @Override
+  public void placeActor(Location location) {
+    MovingActor.super.placeActor(location);
   }
 }

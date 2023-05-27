@@ -51,13 +51,16 @@ public class Game extends GameGrid
     PacActor pacActor = PacActor.getInstance();
     pillFacade = new PillFacade();
 
-    MovingActor[] mactors = new MovingActor[] {
-            pacActor,
+    // TODO: Replace this with MonsterFacade
+    Monster[] monsters = new Monster[] {
             troll,
             tx5
     };
 
-    Monster[] monsters = new Monster[] {
+    // TODO: Replace this with ActorAdapter
+    MovingActor[] mactors = new MovingActor[] {
+            pacActor,
+            // TODO: Replace this with MonsterFacade
             troll,
             tx5
     };
