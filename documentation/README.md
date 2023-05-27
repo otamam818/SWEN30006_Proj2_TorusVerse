@@ -79,10 +79,9 @@ After going through each class, the following design decisions have been made:
 | `PacActor` | Adapter | Allow polymorphic behavior between itself and `Monster` |
 | `PacActor` | Singleton | Prevent any new instance to ever be created and enforce it during development time and runtime |
 
-Implementing the Singleton pattern for the `Game` class came with the additional benefit of reducing 
-any tight coupling from the codebase. This meant that a change in a descendant class - dependending 
-on a value from the `Game` class - will not result in needing to change the code for any other 
-objects connecting them. Expand on how this helps with extensibility of TorusVerse.
+
+Implementing the Singleton pattern for the Game class comes with the additional benefit of reducing direct dependencies between objects and any tight coupling from the codebase. This ensures that other objects that depend on Game can now access it through a single instance which eliminates the need to create new instances in many places or pas around Game instances explicitly. Now, any object that need access to Game can just reference the Singleton instance. Changes made to Game for instance modifying methods or properties will not require modifying the code of other objects that rely on it. This makes it easier to extend the functionality of the Game class as adding new descendant classes does not affect other objects that depend on Game. This makes the design more modular and flexible which allows for easier extension of the TorusVerse. In TorusVerse,
+
 
 After starting the implementation for the Facade pattern on the `Game` class to abstract away pill-related items, 
 it started making sense to also extract any grid parsing functionality away from it too, 
@@ -93,5 +92,14 @@ The singleton pattern implemented in the `PacActor` class assisted in the procce
 for the `Monster` class. The code resulted in less calls to `getInstance` from the Game class, as `PacActor`'s single
 instance was now available without coupling the Game state in. This contributes to better cohesion, thus following
 with a GRASP principle. Expand on how this helps with extensibility of TorusVerse.
+
+The result of refactoring with patterns is the following:
+1. New monsters can be made without having to worry about any irrelevant aspects of the Game logic
+2. New Pills can be made without having to worry about any irrelevant aspects of the Game logic
+3. Now only the `PacManGameGrid` class is responsible for all aspects related to the creation of the Game Grid
+
+The most notable advantage for this assignment is the third bullet point (although the other two are equally
+important for extensibility). Using this lowly-coupled class, we can now migrate the 2D Map Editor into the
+`/pacman` source code.
 
 
