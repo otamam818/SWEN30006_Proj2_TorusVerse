@@ -94,4 +94,13 @@ for the `Monster` class. The code resulted in less calls to `getInstance` from t
 instance was now available without coupling the Game state in. This contributes to better cohesion, thus following
 with a GRASP principle. Expand on how this helps with extensibility of TorusVerse.
 
+The result of refactoring with patterns is the following:
+1. New monsters can be made without having to worry about any irrelevant aspects of the Game logic
+2. New Pills can be made without having to worry about any irrelevant aspects of the Game logic
+3. Now only the `PacManGameGrid` class is responsible for all aspects related to the creation of the Game Grid
+
+The most notable advantage for this assignment is the third bullet point (although the other two are equally
+important for extensibility). Using this lowly-coupled class, we can now migrate the 2D Map Editor into the
+`/pacman` source code.
+
 
