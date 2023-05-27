@@ -1,7 +1,6 @@
 package src.utility;
 
 import ch.aplu.jgamegrid.Location;
-import src.Monster;
 import src.monster.AbstractMonster;
 
 import java.io.File;
@@ -43,12 +42,8 @@ public class GameCallback {
         writeString(pacmanLocationString);
     }
 
-    public void monsterLocationChanged(Monster monster) {
-        String monsterLocationString = String.format("[%s] Location: %d-%d", monster.getType(),
-                monster.getLocation().getX(), monster.getLocation().getY());
-        writeString(monsterLocationString);
-    }
-
+    // NOTE: We might need to carefully compare this callback with the
+    //       previous version - monsterLocationChanged - in the future
     public void abstractMonsterLocationChanged(AbstractMonster monster) {
         String monsterLocationString = String.format("[%s] Location: %d-%d", monster.getType(),
                 monster.getLocation().getX(), monster.getLocation().getY());

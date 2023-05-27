@@ -3,6 +3,8 @@
 package src;
 
 import ch.aplu.jgamegrid.*;
+import src.monster.ActorAdapter;
+import src.monster.MonsterFacade;
 import src.monster.MonsterType;
 import src.monster.TX5;
 import src.pill.PillFacade;
@@ -18,11 +20,6 @@ public class Game extends GameGrid
   private final static int nbHorzCells = 20;
   private final static int nbVertCells = 11;
   protected PacManGameGrid grid = new PacManGameGrid(nbHorzCells, nbVertCells);
-
-  // OLD
-  private Monster troll = new Monster(this, MonsterType.Troll);
-  //NEW - don't even have it here, rather initialize a MonsterFacade in the build method
-  private Monster tx5 = new Monster(this, MonsterType.TX5);
 
   private GameCallback gameCallback;
   private Properties properties;
@@ -45,24 +42,16 @@ public class Game extends GameGrid
     assert gameCallback != null : "gameCallback not initialized";
     assert properties != null : "properties not initialized";
     setSimulationPeriod(100);
-    setTitle("[PacMan in the Torusverse]");
+    setTitle("[PacMan in the TorusVerse]");
 
     //Setup for auto test
     PacActor pacActor = PacActor.getInstance();
+    MonsterFacade monsterFacade = new MonsterFacade();
     pillFacade = new PillFacade();
 
-    // TODO: Replace this with MonsterFacade
-    Monster[] monsters = new Monster[] {
-            troll,
-            tx5
-    };
-
-    // TODO: Replace this with ActorAdapter
-    MovingActor[] mactors = new MovingActor[] {
+    ActorAdapter[] actorAdapter = new ActorAdapter[] {
             pacActor,
-            // TODO: Replace this with MonsterFacade
-            troll,
-            tx5
+            monsterFacade,
     };
 
     GGBackground bg = getBg();
@@ -70,25 +59,16 @@ public class Game extends GameGrid
 
     //Setup Random seeds
     seed = Integer.parseInt(properties.getProperty("seed"));
-    for (MovingActor mactor : mactors) {
-      mactor.setSeed(seed);
-      if (mactor instanceof PacActor) {
-        addKeyRepeatListener(pacActor);
-        setKeyRepeatPeriod(150);
-      }
-
-      mactor.setSlowDown(3);
-      if (mactor instanceof Monster && (((Monster) mactor).getType() == MonsterType.TX5)) {
-        ((Monster) mactor).stopMoving(5);
-      }
+    for (ActorAdapter actor : actorAdapter) {
+      actor.handleStartOfGame(seed);
     }
+
     // NEW
     // For loop over ActorAdapter where MonsterFacade has a setSeed function
     // MonsterFacade.setSeed(seed)
-    for (MovingActor mactor : mactors) {
-      mactor.setupActorLocations();
+    for (ActorAdapter actor : actorAdapter) {
+      actor.setupActorLocations();
     }
-    // setupActorLocations();
 
     //Run the game
     doRun();
@@ -102,17 +82,15 @@ public class Game extends GameGrid
     int maxPillsAndItems = pillFacade.getCount();
 
     do {
-      for (Monster monster : monsters) {
-        hasPacmanBeenHit = hasPacmanBeenHit || monster.collidesWith(pacActor);
-      }
+      hasPacmanBeenHit = hasPacmanBeenHit || monsterFacade.hasPacmanCollided();
       hasPacmanEatAllPills = pacActor.getNbPills() >= maxPillsAndItems;
       delay(10);
     } while(!hasPacmanBeenHit && !hasPacmanEatAllPills);
     delay(120);
 
     Location loc = pacActor.getLocation();
-    for (MovingActor mactor : mactors) {
-      mactor.handleEndOfGame();
+    for (ActorAdapter actor : actorAdapter) {
+      actor.handleEndOfGame();
     }
 
     String title = "";

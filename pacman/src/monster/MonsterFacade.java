@@ -1,5 +1,7 @@
 package src.monster;
 
+import src.PacActor;
+
 public class MonsterFacade implements ActorAdapter {
   private final AbstractMonster[] allMonsters;
   public MonsterFacade() {
@@ -35,6 +37,27 @@ public class MonsterFacade implements ActorAdapter {
   public void setupActorLocations() {
     for (AbstractMonster monster : allMonsters) {
       monster.setupActorLocations();
+    }
+  }
+
+  public boolean hasPacmanCollided() {
+    PacActor pacActor = PacActor.getInstance();
+    for (AbstractMonster currentMonster : allMonsters) {
+      if (currentMonster.collidesWith(pacActor)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  @Override
+  public void handleStartOfGame(int seed) {
+    for (AbstractMonster currentMonster : allMonsters) {
+      currentMonster.setSeed(seed);
+      currentMonster.setSlowDown(3);
+      if (currentMonster instanceof TX5) {
+        ((TX5) currentMonster).stopMoving(5);
+      }
     }
   }
 }

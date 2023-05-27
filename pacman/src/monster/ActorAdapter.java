@@ -10,6 +10,7 @@ public interface ActorAdapter {
 
   void setSlowDown(int factor);
 
+  void handleStartOfGame(int seed);
   void handleEndOfGame();
 
   void setupActorLocations();

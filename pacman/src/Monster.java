@@ -115,7 +115,7 @@ public class Monster extends Actor implements MovingActor
         }
       }
     }
-    game.getGameCallback().monsterLocationChanged(this);
+    // game.getGameCallback().monsterLocationChanged(this);
     addVisitedList(next);
   }
 

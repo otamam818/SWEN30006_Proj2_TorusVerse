@@ -277,4 +277,12 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
   public void placeActor(Location location) {
     MovingActor.super.placeActor(location);
   }
+
+  @Override
+  public void handleStartOfGame(int seed) {
+    setSeed(seed);
+    Game.getInstance().addKeyRepeatListener(this);
+    Game.getInstance().setKeyRepeatPeriod(150);
+    setSlowDown(3);
+  }
 }
