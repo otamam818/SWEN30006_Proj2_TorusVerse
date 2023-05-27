@@ -25,11 +25,22 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
   private int propertyMoveIndex = 0;
   private final int listLength = 10;
   private int seed;
+  private boolean isFirstGame;
   private final Random randomiser = new Random();
+  public void reset() {
+    this.idSprite = 0;
+    this.nbPills = 0;
+    this.score = 0;
+    this.visitedList = new ArrayList<>();
+    this.propertyMoves = new ArrayList<>();
+    this.propertyMoveIndex = 0;
+    this.isFirstGame = false;
+  }
   private PacActor()
   {
     super(true, "sprites/pacpix.gif", nbSprites);  // Rotatable
     var properties = Game.getInstance().getProperties();
+    isFirstGame = true;
     setPropertyMoves(properties.getProperty("PacMan.move"));
     setAuto(Boolean.parseBoolean(properties.getProperty("PacMan.isAuto")));
   }
@@ -282,8 +293,10 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
   @Override
   public void handleStartOfGame(int seed) {
     setSeed(seed);
-    Game.getInstance().addKeyRepeatListener(this);
-    Game.getInstance().setKeyRepeatPeriod(150);
+    if (this.isFirstGame) {
+      Game.getInstance().addKeyRepeatListener(this);
+      Game.getInstance().setKeyRepeatPeriod(150);
+    }
     setSlowDown(3);
   }
 }

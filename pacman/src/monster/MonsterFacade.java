@@ -12,6 +12,12 @@ public class MonsterFacade implements ActorAdapter {
     };
   }
 
+  public void reset() {
+    for (AbstractMonster monster : allMonsters) {
+      monster.actor.removeSelf();
+    }
+  }
+
   @Override
   public void setSeed(int seed) {
     for (AbstractMonster monster : allMonsters) {

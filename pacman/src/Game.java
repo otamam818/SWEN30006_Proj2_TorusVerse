@@ -28,6 +28,7 @@ public class Game extends GameGrid
   private Properties properties;
   private int seed = 30006;
   private PillFacade pillFacade;
+  private MonsterFacade monsterFacade;
 
   private Game() {
     super(nbHorzCells, nbVertCells, 20, false);
@@ -48,6 +49,11 @@ public class Game extends GameGrid
     }
   }
 
+  public void reset() {
+    PacActor.getInstance().reset();
+    monsterFacade.reset();
+  }
+
   public void build()
   {
     //Setup game
@@ -58,7 +64,7 @@ public class Game extends GameGrid
 
     //Setup for auto test
     PacActor pacActor = PacActor.getInstance();
-    MonsterFacade monsterFacade = new MonsterFacade();
+    monsterFacade = new MonsterFacade();
     pillFacade = new PillFacade();
 
     ActorAdapter[] actorAdapter = new ActorAdapter[] {

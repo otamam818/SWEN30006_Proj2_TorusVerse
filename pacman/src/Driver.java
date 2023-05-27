@@ -32,6 +32,7 @@ public class Driver {
                     System.out.println("Now playing: " + file.toString());
                     game.setInitSettings(gameCallback, properties, Optional.of(file));
                     game.build();
+                    game.reset();
                 }
                 /*
                 Game game = Game.getInstance();
