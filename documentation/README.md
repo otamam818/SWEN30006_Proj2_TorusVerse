@@ -87,11 +87,11 @@ objects connecting them. Expand on how this helps with extensibility of TorusVer
 After starting the implementation for the Facade pattern on the `Game` class to abstract away pill-related items, 
 it started making sense to also extract any grid parsing functionality away from it too, 
 as, by doing so, the `Game` class gets closer to performing the High-cohesion principle of GRASP. It was decided to
-extract grid parsing to the `PacManGameGrid` class as it makes more sense to parse grid-related items in said class. 
+extract grid parsing to the `PacManGameGrid` class as it makes more sense to parse grid-related items in said class. Expand on how this helps with extensibility of TorusVerse.
 
 The singleton pattern implemented in the `PacActor` class assisted in the proccess of implementing the Facade pattern
 for the `Monster` class. The code resulted in less calls to `getInstance` from the Game class, as `PacActor`'s single
 instance was now available without coupling the Game state in. This contributes to better cohesion, thus following
-with a GRASP principle.
+with a GRASP principle. Expand on how this helps with extensibility of TorusVerse.
 
 
