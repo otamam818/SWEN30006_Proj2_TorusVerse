@@ -1,0 +1,265 @@
+<mxfile host="app.diagrams.net" modified="2023-05-28T16:27:13.965Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0" etag="UufaNY7ndGiyIyNC06aG" version="21.3.4" type="device">
+  <diagram name="Page-1" id="3EWHXm--91mZoINVdt7k">
+    <mxGraphModel dx="1809" dy="1616" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4dwq4YejsQgadZ0Mm-On-6" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#666666;fillColor=#f5f5f5;fontColor=#333333;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="1" vertex="1">
+          <mxGeometry x="510" y="-110" width="840" height="930" as="geometry" />
+        </mxCell>
+        <mxCell id="4dwq4YejsQgadZ0Mm-On-5" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#666666;fillColor=#f5f5f5;fontColor=#333333;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="1" vertex="1">
+          <mxGeometry x="-210" y="140" width="700" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="UMF83Tj327hu3HLDuz1h-2" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;Game&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;...attributes&lt;/font&gt;&lt;/div&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;&lt;div&gt;&amp;nbsp;... methods&lt;/div&gt;&lt;div&gt;&amp;nbsp;+ setupPillsAndItemsLocations()&lt;/div&gt;&lt;div&gt;&amp;nbsp;- drawGrid(bg: GGBackground)&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Roboto Mono;html=1;whiteSpace=wrap;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" parent="1" vertex="1">
+          <mxGeometry x="200" y="180" width="280" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="4dwq4YejsQgadZ0Mm-On-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.661;entryY=-0.006;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=open;startFill=0;endArrow=none;endFill=0;fontSize=14;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" parent="1" source="UMF83Tj327hu3HLDuz1h-4" target="UMF83Tj327hu3HLDuz1h-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900" y="200" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="640" y="90" />
+              <mxPoint x="710" y="90" />
+              <mxPoint x="710" y="130" />
+              <mxPoint x="620" y="130" />
+              <mxPoint x="620" y="109" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-6" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="UMF83Tj327hu3HLDuz1h-4" target="Rx_yjXkieRfEPGiSi-9z-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="180" />
+              <mxPoint x="800" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" edge="1" parent="1" source="UMF83Tj327hu3HLDuz1h-4" target="Rx_yjXkieRfEPGiSi-9z-37">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="870" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UMF83Tj327hu3HLDuz1h-4" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;Game&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;... attributes&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;... methods&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;u style=&quot;font-size: 14px;&quot;&gt;&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Roboto Mono;html=1;whiteSpace=wrap;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" parent="1" vertex="1">
+          <mxGeometry x="520" y="110" width="170" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="4dwq4YejsQgadZ0Mm-On-2" value="0..1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" parent="1" vertex="1">
+          <mxGeometry x="640" y="60" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4dwq4YejsQgadZ0Mm-On-3" value="Before" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;fontStyle=1;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="-200" y="140" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4dwq4YejsQgadZ0Mm-On-4" value="After" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;fontStyle=1;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="520" y="-110" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="Rx_yjXkieRfEPGiSi-9z-1" target="Rx_yjXkieRfEPGiSi-9z-34">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="655" y="490" />
+              <mxPoint x="655" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;endFill=0;" edge="1" parent="1" source="Rx_yjXkieRfEPGiSi-9z-1" target="Rx_yjXkieRfEPGiSi-9z-37">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="795" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-1" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;PacActor&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 12px;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;... attributes&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 12px;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;- pacActorSingleTon: PacActor&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 12px;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;... methods&lt;br&gt;&lt;/font&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 12px;&quot;&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;&lt;u&gt;+ getInstance(): PacActor&lt;/u&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;/span&gt;&lt;u style=&quot;font-size: 14px;&quot;&gt;&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;u style=&quot;font-size: 14px;&quot;&gt;&lt;br style=&quot;font-size: 14px;&quot;&gt;&lt;/u&gt;&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Roboto Mono;html=1;whiteSpace=wrap;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="530" y="310" width="220" height="119" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="Rx_yjXkieRfEPGiSi-9z-2" target="Rx_yjXkieRfEPGiSi-9z-37">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1070" y="-30" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-2" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;MonsterFacade&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Roboto Mono;html=1;whiteSpace=wrap;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="157" width="140" height="48" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="Rx_yjXkieRfEPGiSi-9z-4" target="Rx_yjXkieRfEPGiSi-9z-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="830" y="390" />
+              <mxPoint x="830" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="Rx_yjXkieRfEPGiSi-9z-4" target="Rx_yjXkieRfEPGiSi-9z-34">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-4" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;AbstractMonster&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;...attributes&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- type: MonsterType&lt;br&gt;&amp;nbsp;- visitedList: ArrayList&amp;lt;Location&amp;gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- actor: Actor&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;... methods&lt;br&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- doAct(&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;): void&lt;/span&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;# setupMonsterType(): MonsterType&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;# chooseNextLocation(oldDirection: double, &lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;next&lt;/span&gt;&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;: Location): Location&lt;br&gt;&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Roboto Mono;html=1;whiteSpace=wrap;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="900" y="261" width="420" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" edge="1" parent="1" source="Rx_yjXkieRfEPGiSi-9z-2" target="Rx_yjXkieRfEPGiSi-9z-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="615" y="220" as="sourcePoint" />
+            <mxPoint x="616" y="269" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1110" y="240" />
+              <mxPoint x="1110" y="240" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-8" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="1085" y="216" width="20" height="23" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-9" value="*" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="1085" y="237" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-12" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;Troll&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;... attributes&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;... methods&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;# setupMonsterType(): MonsterType&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;# chooseNextLocation(oldDirection: double, next: Location): Location&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Roboto Mono;html=1;whiteSpace=wrap;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="810" y="510" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="Rx_yjXkieRfEPGiSi-9z-12" target="Rx_yjXkieRfEPGiSi-9z-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="940" y="547.5" as="sourcePoint" />
+            <mxPoint x="1065" y="490" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1110" y="500" />
+              <mxPoint x="1110" y="500" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-14" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 14px;&quot;&gt;&lt;b&gt;TX5&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;... attributes&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;... methods&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;# setupMonsterType(): MonsterType&lt;/span&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;# chooseNextLocation(oldDirection: double, next: Location): Location&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Roboto Mono;html=1;whiteSpace=wrap;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="810" y="665" width="510" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;dashed=1;" edge="1" parent="1" source="Rx_yjXkieRfEPGiSi-9z-14" target="Rx_yjXkieRfEPGiSi-9z-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1190" y="537.5" as="sourcePoint" />
+            <mxPoint x="1120" y="477.5" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1340" y="680" />
+              <mxPoint x="1340" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-16" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="UMF83Tj327hu3HLDuz1h-4" target="Rx_yjXkieRfEPGiSi-9z-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="616" y="220" as="sourcePoint" />
+            <mxPoint x="616" y="268" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="655" y="230" />
+              <mxPoint x="655" y="230" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-17" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;PacActor&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;... attributes&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;-&lt;font style=&quot;font-size: 14px;&quot;&gt; nbHorzCells: &lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;int&lt;/font&gt;&lt;br&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;- nbVertCells: &lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;int&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;... methods" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Roboto Mono;html=1;whiteSpace=wrap;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="245" y="430" width="190" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=open;endFill=0;" edge="1" parent="1" source="UMF83Tj327hu3HLDuz1h-2" target="Rx_yjXkieRfEPGiSi-9z-17">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="616" y="290" as="sourcePoint" />
+            <mxPoint x="616" y="338" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-19" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="690" y="180" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-20" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="630" y="280" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-21" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&lt;b style=&quot;font-size: 14px;&quot;&gt;Monster&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;... attributes&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&amp;nbsp;-&lt;font style=&quot;font-size: 14px;&quot;&gt; type: MonsterType&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px; font-size: 14px;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- visitedList: ArrayList&amp;lt;Location&amp;gt;&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr style=&quot;font-size: 14px;&quot;&gt;&lt;div&gt;... methods&lt;/div&gt;&lt;div&gt;&amp;nbsp;+ act(): void&lt;/div&gt;&lt;div&gt;&amp;nbsp;+ walkApproach(): void&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Roboto Mono;html=1;whiteSpace=wrap;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="-200" y="190" width="310" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-22" value="" style="endArrow=open;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;endFill=0;" edge="1" parent="1" source="UMF83Tj327hu3HLDuz1h-2" target="Rx_yjXkieRfEPGiSi-9z-21">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-190" y="490" as="sourcePoint" />
+            <mxPoint x="-140" y="440" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="200" y="219" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-23" value="- troll" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="190" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-24" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="216" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-25" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="175" y="216" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-26" value="" style="endArrow=open;html=1;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;endFill=0;" edge="1" parent="1" target="Rx_yjXkieRfEPGiSi-9z-21">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="200" y="274" as="sourcePoint" />
+            <mxPoint x="29" y="270" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="200" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-27" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="267" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-28" value="- tx5" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="246" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-29" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="170" y="268" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-30" value="- pacActor" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-31" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="310" y="390" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;endFill=0;" edge="1" parent="1" source="Rx_yjXkieRfEPGiSi-9z-21" target="UMF83Tj327hu3HLDuz1h-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1200" y="370" as="sourcePoint" />
+            <mxPoint x="1200" y="315" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="180" y="300" />
+              <mxPoint x="180" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-34" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&lt;b&gt;MovingActor&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ setSeed(&lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;seed&lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;: int): &lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;void&lt;/font&gt;&lt;br&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ setSlowDown(&lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;factor: &lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;int): &lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;void&lt;/font&gt;&lt;br&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ getLocation(): &lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;Location&lt;/font&gt;&lt;br&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ getKey(): &lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;String&lt;/font&gt;&lt;br&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ collidesWith(other: &lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;MovingActor&lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;): &lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;Boolean&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ handleEndOfGame(): void&lt;br&gt;&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="540" y="505" width="250" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-37" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&lt;b&gt;ActorAdapter&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ setSeed(&lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;seed&lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;: int): &lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;void&lt;/font&gt;&lt;br&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ setSlowDown(&lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;factor: &lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;int): &lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;void&lt;/font&gt;&lt;br&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ getLocation(): &lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;Location&lt;/font&gt;&lt;br&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ getKey(): &lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;String&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ placeActor(): void&lt;br&gt;&lt;/font&gt;&lt;/p&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&lt;/font&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ handleEndOfGame(): void&lt;/font&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font data-font-src=&quot;https://fonts.googleapis.com/css?family=Roboto+Mono&quot; face=&quot;Roboto Mono&quot;&gt;&amp;nbsp;+ handleStartOfGame(): void&lt;br&gt;&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="730" y="-95" width="250" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Rx_yjXkieRfEPGiSi-9z-1" target="Rx_yjXkieRfEPGiSi-9z-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="330" />
+              <mxPoint x="770" y="290" />
+              <mxPoint x="740" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-39" value="0..1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="730" y="261" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-43" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="1013" y="180" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-46" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="688" y="127" width="20" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-47" value="*" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Roboto Mono;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DRoboto%2BMono;" vertex="1" parent="1">
+          <mxGeometry x="845" y="90" width="20" height="19" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-50" value="- allMonsters" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="241" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-51" value="- actorAdapter" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="870" y="86" width="85" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-53" value="- pacActor" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="655.5" y="280" width="64.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Rx_yjXkieRfEPGiSi-9z-54" value="- monsterFacade" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="930" y="160" width="95" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
