@@ -33,27 +33,27 @@ The initial codebase contains the source directories for two separate programs:
 2. The source code of a GUI to be used as a map maker
 
 While the task is to integrate the GUI into the PacMan game and implement the
-new functionality of the TorusVerse version, simply porting the GUI into a
-badly designed codebase of the original game could potentially make for a worse
+new functionality of the TorusVerse version, simply porting the GUI into a 
+potentially badly-designed codebase of the original game could make for a worse
 design. Thus, to make the best results, first we will analyze the simple
 version of the game and check what changes can be made.
 
 ### Simple version of the game
 #### The problem
-Initially, all the game logic, including:
-are all in the `Game` class. This strongly goes against the following GRASP
+Initially, all the game logic, handling of individual variables, and a few classes
+are in the `Game` class. Keeping it all in one place strongly goes against the following GRASP
 principles:
-1. Low Coupling - every individual object interaction happens in the `Game` class.
-This means that any changes made to any other class would cause a massive
+1. Low Coupling - since every individual object interaction happens in the `Game` class, 
+any changes made to other classes would cause a massive
 impact to the entire program, thus making it harder to maintain
 2. High Cohesion - The `Game` class does more than one well-defined job,
 thus leaving its purpose very unfocused around separate responsibilities. This
 makes it difficult to change and maintian the code; since responsibilities are
 closely knit together, extending the game into the TorusVerse version could
-require an entire system revamp
-3. Creator - object initialization for all individual monsters and PacMan
-happens in the `Game` class. This makes it difficult to implement and maintain
-new monsters and ensure any new logic is followed everywhere within the source code
+be a potential disaster, potentially making it inevitable to write the code from scratch.
+3. Creator - The object initialization for all individual monsters and PacMan
+happens in the `Game` class. This makes it difficult to implement new monsters and maintain 
+old ones while ensuring that the new logic is followed everywhere within the source code.
 
 #### What changes can be made?
 A table of considerations are made for all classes. For each consideration, the resulting design pattern chosen is proposed:
@@ -68,6 +68,7 @@ A table of considerations are made for all classes. For each consideration, the 
 
 **Note:** While no class really *needs* any patterns to be functional, the word "need" refers to any decision which is more meaningful to the semantics of the program.
 
+#### The changes made
 After going through each class, the following design decisions have been made:
 | Class | Pattern | Reason |
 | ----- | ------- | ------ |
@@ -79,27 +80,42 @@ After going through each class, the following design decisions have been made:
 | `PacActor` | Adapter | Allow polymorphic behavior between itself and `Monster` |
 | `PacActor` | Singleton | Prevent any new instance to ever be created and enforce it during development time and runtime |
 
+##### The singleton pattern on the `Game` class
+Implementing this pattern for the `Game` class comes with the additional benefit of reducing dependencies between the parameters of objects and any tight coupling from the codebase. This ensures that other objects that depend on `Game` can now access a global single instance which eliminates the need to pass around the single `Game` instance explicitly. Now, any object that needs access to `Game` can just reference it using `Game.getInstance()`.
 
-Implementing the Singleton pattern for the Game class comes with the additional benefit of reducing direct dependencies between objects and any tight coupling from the codebase. This ensures that other objects that depend on Game can now access it through a single instance which eliminates the need to create new instances in many places or pas around Game instances explicitly. Now, any object that need access to Game can just reference the Singleton instance. Changes made to Game for instance modifying methods or properties will not require modifying the code of other objects that rely on it. This makes it easier to extend the functionality of the Game class as adding new descendant classes does not affect other objects that depend on Game. This makes the design more modular and flexible which allows for easier extension of the TorusVerse. In TorusVerse,
+Since the same `Game` object can be referred to from anywhere, other objects relying on it will no longer need to store a reference to it. Due to this, adding new descendant classes (like new Monsters set by a new specification) will not require any kind of change in other classes. This makes the design more modular and flexible which allows for easier extension of the TorusVerse.  
+![Game Singleton](Diagrams/GameSingleton.png)
 
-
+##### The `PacManGameGrid` class and the Facade pattern on the `Game` class for Pills
 After starting the implementation for the Facade pattern on the `Game` class to abstract away pill-related items, 
 it started making sense to also extract any grid parsing functionality away from it too, 
-as, by doing so, the `Game` class gets closer to performing the High-cohesion principle of GRASP. It was decided to
-extract grid parsing to the `PacManGameGrid` class as it makes more sense to parse grid-related items in said class. Expand on how this helps with extensibility of TorusVerse.
+as, by doing so, the `Game` class gets closer to performing the High-cohesion principle of GRASP.
 
+It was decided to extract grid parsing to the `PacManGameGrid` class as it makes more sense to parse grid-related items in said class.
+This is important especially for this specification, as the new functionality is strongly dependant on how the grid
+is parsed. Since the logic for grid-parsing now only happens in `PacManGameGrid`, this would be the only class that 
+would eventually need to be changed when porting the 2D Map Editor. This saves us (the developers) from potentially 
+introducing bugs in other parts of the codebase while also contributing to it by adding the newly requested features.  
+![Pill Facade](Diagrams/PillAndGridAbstraction.png)
+
+##### The singleton pattern on the `PacActor` class and the Facade pattern on the `Game` class for Monsters
 The singleton pattern implemented in the `PacActor` class assisted in the proccess of implementing the Facade pattern
 for the `Monster` class. The code resulted in less calls to `getInstance` from the Game class, as `PacActor`'s single
-instance was now available without coupling the Game state in. This contributes to better cohesion, thus following
-with a GRASP principle. Expand on how this helps with extensibility of TorusVerse.
+instance was now available without coupling the Game state in.
 
-The result of refactoring with patterns is the following:
-1. New monsters can be made without having to worry about any irrelevant aspects of the Game logic
-2. New Pills can be made without having to worry about any irrelevant aspects of the Game logic
+This contributes to better cohesion, thus following with a GRASP principle. If Arcade 24 (TM) ever wants to make new Monsters, they would only need to worry about the `MonsterFacade` class and its set of attributes rather than the whole game. With that same idea since, since the 
+idea of the Torus effect is in the current specification, implementing it would no longer require the developers to worry about the implementation of Monsters or other unrelated aspects of the Game.
+![Pill Facade](Diagrams/ActorAbstraction.png)
+
+In summary, the result of refactoring with patterns is the following:
+1. New monsters can be made without having to worry about any unrelated aspects of the Game logic
+2. New Pills can be made without having to worry about any unrelated aspects of the Game logic
 3. Now only the `PacManGameGrid` class is responsible for all aspects related to the creation of the Game Grid
 
-The most notable advantage for this assignment is the third bullet point (although the other two are equally
+The most notable advantage for this assignment is the third point (although the other two are equally
 important for extensibility). Using this lowly-coupled class, we can now migrate the 2D Map Editor into the
 `/pacman` source code.
+
+
 
 
