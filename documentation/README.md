@@ -116,6 +116,42 @@ The most notable advantage for this assignment is the third point (although the 
 important for extensibility). Using this lowly-coupled class, we can now migrate the 2D Map Editor into the
 `/pacman` source code.
 
+### Integrating the 2D Map Editor
+The 2D Map Editor comes mostly pre-implemented. It only now needs to be integrated into the `/pacman` source
+code. Since the editor primarily makes the map for a custom `PacManGameGrid` instance, this was the only class
+that required significant changes.
+
+In general, the overall set of changes include:
+- Ensuring the existence of a `/pacman/Game` directory 
+- transferring the sprites from `2D-Map-Editor-master/data` to a new directory `/pacman/torusData` 
+- Changing how the `String[] args` parameter in the `main` method of `/pacman/src/Driver` parsed the commandline
+arguments
+- Changing how the Game would handle the file/directory provided in the commandline arguments. This included 
+safe-checks to go back to the original (refactored) version of the game.
+- Changing how `PacManGameGrid` would convert the XML files to match with the original initialization of the grid
+while also extending to the new functionality.
+
+When an XML file is loaded into the program using the 2D Map Editor's `Controller.loadFile` method and the `GridModel` class, 
+the map is originally stored as a 2D array containing characters, whereas the original version stored the map as
+a 2D array of integers.
+
+To resolve the disparity of using different datatypes for parsing the same map, the `PacManGameGrid` class accomplished 
+two extra goals (both related to Map parsing, thus maintaining high cohesion):
+1. Since the rest of the program was implemented to understand the 2D integer-array, the 2D-character-array was 
+converted into a 2D integer-array.
+2. It parsed the properties of the grid to now prefer the properties of the XML Grid over the `.properties` file.
+This was one of our tasks from the specification.
+
+Point `1.` could be easily done in the `PacManGameGrid` class, as it only was concerning the initialization of the grid.
+
+Point `2.` would have been difficult to implement if not for the newly refactored version of the code. With the new version, 
+instead of changing every individual object and variable to reflect the new XML file, the only method that needed to be changed 
+was the default implementation of the `MovingActor.initializeLocation()` method, thus affecting every single relevant class 
+without needing to change them individually. With the availability of a Game singleton, no other part of the codebase required 
+restructuring and could be seamlessly called to access the new data in the `PacManGameGrid` class. 
+
+This is a great example of the perks that come with mixing the Singleton and Adapter patterns with the polymorphism and high cohesion GRASP principles, 
+proving the improvement in maintainability and scalability of the new codebase whilst also reducing the chances of human error. 
 
 
 
