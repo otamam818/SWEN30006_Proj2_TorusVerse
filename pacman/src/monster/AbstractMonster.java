@@ -92,6 +92,7 @@ public abstract class AbstractMonster implements MovingActor {
     actor.setDirection(oldDirection);
     actor.turn(sign * 90);  // Try to turn left/right
     next = actor.getNextMoveLocation();
+    next = getMoveOutOfBounds(next);
     if (canMove(next))
     {
       actor.setLocation(next);
@@ -100,6 +101,7 @@ public abstract class AbstractMonster implements MovingActor {
     {
       actor.setDirection(oldDirection);
       next = actor.getNextMoveLocation();
+      next = getMoveOutOfBounds(next);
       if (canMove(next)) // Try to move forward
       {
         actor.setLocation(next);
@@ -109,6 +111,7 @@ public abstract class AbstractMonster implements MovingActor {
         actor.setDirection(oldDirection);
         actor.turn(-sign * 90);  // Try to turn right/left
         next = actor.getNextMoveLocation();
+        next = getMoveOutOfBounds(next);
         if (canMove(next))
         {
           actor.setLocation(next);
@@ -145,15 +148,49 @@ public abstract class AbstractMonster implements MovingActor {
     return false;
   }
 
-  protected boolean canMove(Location location)
+  private int checkOutOfBounds(int coord, int bound) {
+    if (coord >= bound || coord < 0) {
+      return (coord < 0) ? coord + bound : coord % bound;
+    }
+    return -1;
+  }
+
+  protected Location getMoveOutOfBounds(Location location)
   {
+    if (location == null) {
+      return null;
+    }
+
     Game game = Game.getInstance();
+    Location newLocation;
+    int currX = location.getX();
+    int currY = location.getY();
+    // if newX or newY value remains as -1 after the next two statements,
+    // they don't fall outside bounds.
+    int newX = checkOutOfBounds(currX, game.getNumHorzCells());
+    int newY = checkOutOfBounds(currY, game.getNumVertCells());
+
+    if ((newX != -1) || (newY != -1)) {
+      if (newX != -1 && newY != -1) {
+        newLocation = new Location(newX, newY);
+      }
+      else if (newX == -1) {
+        newLocation = new Location(currX, newY);
+      }
+      else{
+        newLocation =  new Location(newX, currY);
+      }
+    }
+    else {
+      newLocation = new Location(currX, currY);
+    }
+
+    return newLocation;
+  }
+
+  protected boolean canMove(Location location) {
     Color c = actor.getBackground().getColor(location);
-    if (c.equals(Color.gray) || location.getX() >= game.getNumHorzCells()
-            || location.getX() < 0 || location.getY() >= game.getNumVertCells() || location.getY() < 0)
-      return false;
-    else
-      return true;
+    return (!c.equals(Color.gray));
   }
 
   protected abstract MonsterType setupMonsterType();

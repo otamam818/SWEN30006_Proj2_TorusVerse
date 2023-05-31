@@ -94,6 +94,7 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
         setDirection(Location.SOUTH);
       }
     }
+    next = getMoveOutOfBounds(next);
     if (next != null && canMove(next))
     {
       setLocation(next);
@@ -139,6 +140,7 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
       case "L" -> turn(-90);
       case "M" -> {
         Location next = getNextMoveLocation();
+        next = getMoveOutOfBounds(next);
         if (canMove(next)) {
           setLocation(next);
           eatPill(next);
@@ -160,6 +162,7 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
             getLocation().get4CompassDirectionTo(closestPill);
     Location next = getLocation().getNeighbourLocation(compassDir);
     setDirection(compassDir);
+    next = getMoveOutOfBounds(next);
     if (!isVisited(next) && canMove(next)) {
       setLocation(next);
     } else {
@@ -168,11 +171,13 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
       setDirection(oldDirection);
       turn(sign * 90);  // Try to turn left/right
       next = getNextMoveLocation();
+      next = getMoveOutOfBounds(next);
       if (canMove(next)) {
         setLocation(next);
       } else {
         setDirection(oldDirection);
         next = getNextMoveLocation();
+        next = getMoveOutOfBounds(next);
         if (canMove(next)) // Try to move forward
         {
           setLocation(next);
@@ -180,6 +185,7 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
           setDirection(oldDirection);
           turn(-sign * 90);  // Try to turn right/left
           next = getNextMoveLocation();
+          next = getMoveOutOfBounds(next);
           if (canMove(next)) {
             setLocation(next);
           } else {
@@ -210,12 +216,49 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
     return false;
   }
 
-  private boolean canMove(Location location)
+  private int checkOutOfBounds(int coord, int bound) {
+    if (coord >= bound || coord < 0) {
+      return (coord < 0) ? coord + bound : coord % bound;
+    }
+    return -1;
+  }
+
+  protected Location getMoveOutOfBounds(Location location)
   {
+    if (location == null) {
+      return null;
+    }
+
     Game game = Game.getInstance();
+    Location newLocation;
+    int currX = location.getX();
+    int currY = location.getY();
+    // if newX or newY value remains as -1 after the next two statements,
+    // they don't fall outside bounds.
+    int newX = checkOutOfBounds(currX, game.getNumHorzCells());
+    int newY = checkOutOfBounds(currY, game.getNumVertCells());
+
+    if ((newX != -1) || (newY != -1)) {
+      if (newX != -1 && newY != -1) {
+        newLocation = new Location(newX, newY);
+      }
+      else if (newX == -1) {
+        newLocation = new Location(currX, newY);
+      }
+      else{
+        newLocation =  new Location(newX, currY);
+      }
+    }
+    else {
+      newLocation = new Location(currX, currY);
+    }
+
+    return newLocation;
+  }
+
+  protected boolean canMove(Location location) {
     Color c = getBackground().getColor(location);
-    return !c.equals(Color.gray) && location.getX() < game.getNumHorzCells()
-            && location.getX() >= 0 && location.getY() < game.getNumVertCells() && location.getY() >= 0;
+    return (!c.equals(Color.gray));
   }
 
   public int getNbPills() {

@@ -9,6 +9,7 @@ public class TX5 extends AbstractMonster {
 
   @Override
   protected Location chooseNextLocation(double oldDirection, Location next) {
+    next = getMoveOutOfBounds(next);
     if (!isVisited(next) && canMove(next)) {
       actor.setLocation(next);
     } else {
