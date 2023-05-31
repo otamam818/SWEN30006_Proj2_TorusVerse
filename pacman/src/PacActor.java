@@ -279,7 +279,8 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
 
   protected boolean canMove(Location location) {
     Color c = getBackground().getColor(location);
-    return (!c.equals(Color.gray));
+    boolean isPortal = !checkPortal(location).equals(location);
+    return (!c.equals(Color.gray) || isPortal);
   }
 
   public int getNbPills() {

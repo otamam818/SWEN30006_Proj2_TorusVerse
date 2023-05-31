@@ -142,4 +142,12 @@ public class PillFacade {
     }
     chosenPill.removeItem(type, location);
   }
+
+  public void removeAllPills() {
+    this.goldPills.getLocations().clear();
+    this.icePills.getLocations().clear();
+    this.simplePills.getLocations().clear();
+    this.pillAndItemLocations.clear();
+    this.count = null;
+  }
 }

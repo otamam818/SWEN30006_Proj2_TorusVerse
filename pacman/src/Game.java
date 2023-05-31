@@ -18,6 +18,10 @@ import java.io.File;
 import java.util.Optional;
 import java.util.Properties;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 public class Game extends GameGrid
 {
   private static Game gameSingleton = null;
@@ -38,6 +42,8 @@ public class Game extends GameGrid
     this.gameCallback = null;
   }
 
+  private ScheduledExecutorService scheduler;
+
   public void setInitSettings(GameCallback gameCallback, Properties properties, Optional<File> chosenFile) {
     this.gameCallback = gameCallback;
     this.properties = properties;
@@ -53,7 +59,10 @@ public class Game extends GameGrid
 
   public void reset() {
     PacActor.getInstance().reset();
+//    pillFacade.removeAllPills();
+//    portalFacade.setupPortalLocations();
     monsterFacade.reset();
+//    getBg().clear();
   }
 
   public void build()
@@ -120,7 +129,12 @@ public class Game extends GameGrid
     if (hasPacmanBeenHit) {
       bg.setPaintColor(Color.red);
       title = "GAME OVER";
-      addActor(new Actor("sprites/explosion3.gif"), loc);
+      Actor explosion = new Actor("sprites/explosion3.gif");
+      addActor(explosion, loc);
+      scheduler = Executors.newSingleThreadScheduledExecutor();
+      scheduler.schedule(() -> {
+        removeActor(explosion);
+      }, 800, TimeUnit.MILLISECONDS);
     } else if (hasPacmanEatAllPills) {
       bg.setPaintColor(Color.yellow);
       title = "YOU WIN";
