@@ -4,6 +4,7 @@ package src;
 
 import ch.aplu.jgamegrid.*;
 import src.monster.ActorAdapter;
+import src.portal.PortalFacade;
 import src.utility.PacManGameGrid;
 
 import java.awt.event.KeyEvent;
@@ -99,6 +100,10 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
     {
       setLocation(next);
       eatPill(next);
+      Location currPortal = checkPortal(next);
+      if (!(currPortal.equals(next))) {
+        setLocation(currPortal);
+      }
     }
   }
 
@@ -223,6 +228,21 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
     return -1;
   }
 
+  protected Location checkPortal(Location location) {
+    Game game = Game.getInstance();
+    List<Location>[] portalList = game.getPortalFacade().getPortals();
+    for (List<Location> portal : portalList) {
+      if (portal.contains(location)) {
+        for (Location portalCoords : portal) {
+          if (!(portalCoords.equals(location))) {
+            return portalCoords;
+          }
+        }
+      }
+    }
+    return location;
+  }
+
   protected Location getMoveOutOfBounds(Location location)
   {
     if (location == null) {
@@ -253,6 +273,7 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
       newLocation = new Location(currX, currY);
     }
 
+//    return checkPortal(newLocation);
     return newLocation;
   }
 

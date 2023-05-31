@@ -31,8 +31,18 @@ public class PortalFacade {
     this.count = null;
   }
 
-  public List<Location> getPillAndItemLocations() {
+  public List<Location> getPortalLocations() {
     return portalLocations;
+  }
+
+  public List<Location>[] getPortals() {
+    List<Location>[] portals = new List[4];
+    portals[0] = whitePortals.getLocations();
+    portals[1] = yellowPortals.getLocations();
+    portals[2] = darkGoldPortals.getLocations();
+    portals[3] = darkGrayPortals.getLocations();
+
+    return portals;
   }
 
   public int getCount() {
@@ -92,16 +102,20 @@ public class PortalFacade {
       {
         Location location = new Location(x, y);
         int a = grid.getCell(location);
-        if (a == 7 && noDarkGoldPortals) {
+        if (a == 7) {
+          darkGoldPortals.getLocations().add(location);
           finalLocations.add(location);
         }
-        if (a == 8 && noDarkGrayPortals) {
+        if (a == 8) {
+          darkGrayPortals.getLocations().add(location);
           finalLocations.add(location);
         }
-        if (a == 5 && noWhitePortals) {
+        if (a == 5) {
+          whitePortals.getLocations().add(location);
           finalLocations.add(location);
         }
-        if (a == 6 && noYellowPortals) {
+        if (a == 6) {
+          yellowPortals.getLocations().add(location);
           finalLocations.add(location);
         }
       }
