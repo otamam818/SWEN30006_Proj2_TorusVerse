@@ -125,6 +125,18 @@ public class PacManGameGrid
     // For the IceTile
     if (c == 'e')
       return 4;
+    // for the WhitePortal
+    if (c == 'i')
+      return 5;
+    // for the YellowPortal
+    if (c == 'j')
+      return 6;
+    // for the DarkGoldPortal
+    if (c == 'k')
+      return 7;
+    // for the DarkGrayPortal
+    if (c == 'l')
+      return 8;
     throw new RuntimeException("Not implemented for: " + Character.toString(c));
   }
 
@@ -146,6 +158,7 @@ public class PacManGameGrid
           .getInstance()
           .getPillFacade()
           .fillCell(a, bg, location);
+        Game.getInstance().getPortalFacade().fillCell(a, bg, location);
       }
     }
 
@@ -153,6 +166,7 @@ public class PacManGameGrid
       .getInstance()
       .getPillFacade()
       .putLocatedPills(bg);
+    Game.getInstance().getPortalFacade().putLocatedPortals(bg);
   }
 
   public GridOrigin getOrigin() {

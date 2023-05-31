@@ -8,6 +8,7 @@ import src.monster.MonsterFacade;
 import src.monster.MonsterType;
 import src.monster.TX5;
 import src.pill.PillFacade;
+import src.portal.PortalFacade;
 import src.utility.GameCallback;
 import src.utility.GameXMLHandler;
 import src.utility.PacManGameGrid;
@@ -28,6 +29,7 @@ public class Game extends GameGrid
   private Properties properties;
   private int seed = 30006;
   private PillFacade pillFacade;
+  private PortalFacade portalFacade;
   private MonsterFacade monsterFacade;
 
   private Game() {
@@ -66,6 +68,7 @@ public class Game extends GameGrid
     PacActor pacActor = PacActor.getInstance();
     monsterFacade = new MonsterFacade();
     pillFacade = new PillFacade();
+    portalFacade = new PortalFacade();
 
     ActorAdapter[] actorAdapter = new ActorAdapter[] {
             pacActor,
@@ -98,6 +101,8 @@ public class Game extends GameGrid
 
     pillFacade.setupPillAndItemsLocations();
     int maxPillsAndItems = pillFacade.getCount();
+
+    portalFacade.setupPortalLocations();
 
     do {
       hasPacmanBeenHit = hasPacmanBeenHit || monsterFacade.hasPacmanCollided();
@@ -150,6 +155,10 @@ public class Game extends GameGrid
 
   public PillFacade getPillFacade() {
     return pillFacade;
+  }
+
+  public PortalFacade getPortalFacade() {
+    return  portalFacade;
   }
 
   public PacManGameGrid getGrid() {

@@ -1,4 +1,4 @@
-package src.portals;
+package src.portal;
 
 import ch.aplu.jgamegrid.Actor;
 import ch.aplu.jgamegrid.GGBackground;
@@ -38,10 +38,10 @@ public abstract class AbstractPortals {
     }
     bg.setPaintColor(getPaintColor());
     bg.fillCircle(gameInstance.toPoint(location), 5);
-    String fileName = "torusData/" + getKey() + ".png";
-    Actor gold = new Actor(fileName);
-    actorPieces.get().add(gold);
-    gameInstance.addActor(gold, location);
+    String fileName = "sprites/portal_" + getKey().toLowerCase() + ".png";
+    Actor portal = new Actor(fileName);
+    actorPieces.get().add(portal);
+    gameInstance.addActor(portal, location);
   }
 
   private void addParsedLocations() {
@@ -61,10 +61,10 @@ public abstract class AbstractPortals {
 
   private boolean hasActorPieces() {
     HashSet<String> acceptedPieces = new HashSet<>() {{
-      add("i_portalWhiteTile");
-      add("k_portalYellowTile");
-      add("k_portalDarkGoldTile");
-      add("l_portalDarkGrayTile");
+      add("White");
+      add("Yellow");
+      add("DarkGold");
+      add("DarkGray");
     }};
     return acceptedPieces.contains(getKey());
   }

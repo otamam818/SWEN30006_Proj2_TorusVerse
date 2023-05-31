@@ -1,4 +1,4 @@
-package src.portals;
+package src.portal;
 
 import java.awt.*;
 
@@ -9,7 +9,7 @@ public class DarkGrayPortals extends AbstractPortals {
 
   @Override
   protected String getKey() {
-    return "l_portalDarkGrayTile";
+    return "DarkGray";
   }
 
   @Override
