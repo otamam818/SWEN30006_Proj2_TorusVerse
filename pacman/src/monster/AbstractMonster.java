@@ -5,6 +5,7 @@ import ch.aplu.jgamegrid.Location;
 import src.Game;
 import src.MovingActor;
 import src.PacActor;
+import src.editor.Constants;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public abstract class AbstractMonster implements MovingActor {
   private final Random randomiser = new Random(0);
   public AbstractMonster() {
     this.type = setupMonsterType();
-    this.actor = new Actor("sprites/" + type.getImageName()) {
+    this.actor = new Actor(Constants.ACTOR_SPRITES_FOLDER + "/" + type.getImageName()) {
       @Override
       public void act() {
         doAct();

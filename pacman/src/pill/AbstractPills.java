@@ -4,6 +4,7 @@ import ch.aplu.jgamegrid.Actor;
 import ch.aplu.jgamegrid.GGBackground;
 import ch.aplu.jgamegrid.Location;
 import src.Game;
+import src.editor.Constants;
 
 import java.awt.*;
 import java.util.*;
@@ -42,7 +43,7 @@ public abstract class AbstractPills {
     }
     bg.setPaintColor(getPaintColor());
     bg.fillCircle(gameInstance.toPoint(location), 5);
-    String fileName = "sprites/" + getKey().toLowerCase() + ".png";
+    String fileName = Constants.ACTOR_SPRITES_FOLDER + "/" + getKey().toLowerCase() + ".png";
     Actor gold = new Actor(fileName);
     actorPieces.get().add(gold);
     gameInstance.addActor(gold, location);

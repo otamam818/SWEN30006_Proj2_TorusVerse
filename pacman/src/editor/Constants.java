@@ -21,4 +21,6 @@ public class Constants {
 
 	public static final int TILE_HEIGHT = TILE_WIDTH;
 
+	public static final String TORUS_FOLDER = "sprites/torusData";
+	public static final String ACTOR_SPRITES_FOLDER = "sprites/originalSprites";
 }

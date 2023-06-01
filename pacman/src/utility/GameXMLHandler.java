@@ -4,6 +4,7 @@ import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
+import src.editor.Constants;
 import src.editor.Tile;
 import src.editor.TileManager;
 import src.grid.Grid;
@@ -36,7 +37,7 @@ public class GameXMLHandler {
                 .getChildText("height"));
         int width = Integer
                 .parseInt(sizeElem.getChildText("width"));
-        List<Tile> tiles = TileManager.getTilesFromFolder("torusData/");
+        List<Tile> tiles = TileManager.getTilesFromFolder(Constants.TORUS_FOLDER);
         Grid model = new GridModel(width, height, tiles.get(0).getCharacter());
 
         List rows = rootNode.getChildren("row");

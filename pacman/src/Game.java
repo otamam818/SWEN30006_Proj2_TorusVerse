@@ -3,6 +3,7 @@
 package src;
 
 import ch.aplu.jgamegrid.*;
+import src.editor.Constants;
 import src.monster.ActorAdapter;
 import src.monster.MonsterFacade;
 import src.monster.MonsterType;
@@ -129,7 +130,7 @@ public class Game extends GameGrid
     if (hasPacmanBeenHit) {
       bg.setPaintColor(Color.red);
       title = "GAME OVER";
-      Actor explosion = new Actor("sprites/explosion3.gif");
+      Actor explosion = new Actor(Constants.ACTOR_SPRITES_FOLDER + "/explosion3.gif");
       addActor(explosion, loc);
       scheduler = Executors.newSingleThreadScheduledExecutor();
       scheduler.schedule(() -> {

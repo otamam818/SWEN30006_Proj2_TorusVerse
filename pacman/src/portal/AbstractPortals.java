@@ -4,6 +4,7 @@ import ch.aplu.jgamegrid.Actor;
 import ch.aplu.jgamegrid.GGBackground;
 import ch.aplu.jgamegrid.Location;
 import src.Game;
+import src.editor.Constants;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public abstract class AbstractPortals {
     }
     bg.setPaintColor(getPaintColor());
     bg.fillCircle(gameInstance.toPoint(location), 5);
-    String fileName = "sprites/portal_" + getKey().toLowerCase() + ".png";
+    String fileName = Constants.ACTOR_SPRITES_FOLDER + "/portal_" + getKey().toLowerCase() + ".png";
     Actor portal = new Actor(fileName);
     actorPieces.get().add(portal);
     gameInstance.addActor(portal, location);

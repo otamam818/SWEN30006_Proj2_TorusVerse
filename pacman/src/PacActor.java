@@ -3,6 +3,7 @@
 package src;
 
 import ch.aplu.jgamegrid.*;
+import src.editor.Constants;
 import src.monster.ActorAdapter;
 import src.portal.PortalFacade;
 import src.utility.PacManGameGrid;
@@ -39,7 +40,7 @@ public class PacActor extends Actor implements GGKeyRepeatListener, MovingActor,
   }
   private PacActor()
   {
-    super(true, "sprites/pacpix.gif", nbSprites);  // Rotatable
+    super(true, Constants.ACTOR_SPRITES_FOLDER + "/pacpix.gif", nbSprites);  // Rotatable
     var properties = Game.getInstance().getProperties();
     isFirstGame = true;
     setPropertyMoves(properties.getProperty("PacMan.move"));
